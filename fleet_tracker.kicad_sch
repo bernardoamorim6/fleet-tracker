@@ -3658,6 +3658,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Firmware GPIO assignments:\nGPIO16 = Ignition sense input (digital or ADC)\nGPIO17 = CAN UART TX (drives TJA1051 pin 1 TXD)\nGPIO18 = CAN UART RX (reads TJA1051 pin 4 RXD)\nCAN bit rate: 250 kbps (verify against FMS-standard for your trucks)\nTJA1051 is in listen-only mode (S pin = VIO)"
+		(exclude_from_sim no)
+		(at 243.586 62.484 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "70c92856-f6bb-4101-a567-914bbbf7cdd0")
+	)
 	(junction
 		(at 62.23 74.93)
 		(diameter 0)

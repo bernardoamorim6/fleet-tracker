@@ -1,0 +1,195 @@
+** Drc report for fleet_tracker.kicad_pcb **
+** Created on 2026-07-23T09:33:07+0000 **
+
+** Found 47 DRC violations **
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(126.5000 mm, 132.0000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(133.0000 mm, 134.5000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(119.0000 mm, 113.9200 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(152.0000 mm, 149.0000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(134.0000 mm, 113.5000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(162.0000 mm, 144.0000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(147.0000 mm, 120.8800 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(123.9500 mm, 123.0000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(165.4400 mm, 110.0000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(132.4200 mm, 109.5000 mm): Via [GND] on F.Cu - B.Cu
+[annular_width]: Annular width (board setup constraints min annular width 0.1300 mm; actual 0.1000 mm)
+    Rule: board setup constraints; error
+    @(132.4200 mm, 90.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(126.5000 mm, 132.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(133.0000 mm, 134.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(119.0000 mm, 113.9200 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(152.0000 mm, 149.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(134.0000 mm, 113.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(162.0000 mm, 144.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(147.0000 mm, 120.8800 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(123.9500 mm, 123.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(165.4400 mm, 110.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(132.4200 mm, 109.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_diameter]: Via diameter (board setup constraints min diameter 0.6000 mm; actual 0.5000 mm)
+    Rule: netclass 'power'; error
+    @(132.4200 mm, 90.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(126.5000 mm, 132.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(133.0000 mm, 134.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(119.0000 mm, 113.9200 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(152.0000 mm, 149.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(134.0000 mm, 113.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(162.0000 mm, 144.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(147.0000 mm, 120.8800 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(123.9500 mm, 123.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(165.4400 mm, 110.0000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(132.4200 mm, 109.5000 mm): Via [GND] on F.Cu - B.Cu
+[via_dangling]: Via is not connected or connected on only one layer
+    Local override; warning
+    @(132.4200 mm, 90.0000 mm): Via [GND] on F.Cu - B.Cu
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(131.8000 mm, 120.2500 mm): Reference field of U2
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(127.6200 mm, 118.6500 mm): Circle of L1 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(163.7400 mm, 138.4900 mm): Circle of C4 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(158.6600 mm, 138.4900 mm): Circle of C3 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(143.5000 mm, 120.0200 mm): Circle of C2 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(134.4000 mm, 116.5000 mm): Circle of C1 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(126.1000 mm, 128.4500 mm): Circle of R2 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(121.9500 mm, 128.9000 mm): Circle of R1 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(123.4600 mm, 144.1500 mm): Segment of F1 on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(144.5600 mm, 136.7500 mm): Segment of F1 on F.Silkscreen
+[silk_overlap]: Silkscreen overlap (board setup constraints silk clearance 0.1500 mm; actual 0.0144 mm)
+    Rule: board setup constraints silk; warning
+    @(132.1600 mm, 119.6800 mm): Segment of L1 on F.Silkscreen
+    @(131.8000 mm, 120.2500 mm): Reference field of U2
+[silk_overlap]: Silkscreen overlap (board setup constraints silk clearance 0.1500 mm; actual 0.0000 mm)
+    Rule: board setup constraints silk; warning
+    @(116.2600 mm, 111.3700 mm): Segment of J1 on F.Silkscreen
+    @(117.0000 mm, 124.0800 mm): Reference field of J1
+[silk_overlap]: Silkscreen overlap (board setup constraints silk clearance 0.1500 mm; actual 0.1190 mm)
+    Rule: board setup constraints silk; warning
+    @(123.4600 mm, 136.7500 mm): Segment of F1 on F.Silkscreen
+    @(134.0000 mm, 136.5000 mm): Reference field of F1
+[silk_overlap]: Silkscreen overlap (board setup constraints silk clearance 0.1500 mm; actual 0.0048 mm)
+    Rule: board setup constraints silk; warning
+    @(134.0000 mm, 136.5000 mm): Reference field of F1
+    @(147.5000 mm, 135.7500 mm): Segment of F1 on F.Silkscreen
+
+** Found 10 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(113.0000 mm, 113.9200 mm): Track [GND] on F.Cu, length 6.0000 mm
+    @(123.9500 mm, 121.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(126.5000 mm, 130.0000 mm): Track [GND] on F.Cu, length 2.0000 mm
+    @(123.9500 mm, 121.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(126.5000 mm, 130.0000 mm): Track [GND] on F.Cu, length 2.0000 mm
+    @(133.0000 mm, 132.5000 mm): Track [GND] on F.Cu, length 2.0000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(132.4200 mm, 106.5000 mm): Track [GND] on F.Cu, length 3.0000 mm
+    @(132.4200 mm, 86.5000 mm): Track [GND] on F.Cu, length 3.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(132.4200 mm, 106.5000 mm): Track [GND] on F.Cu, length 3.0000 mm
+    @(134.0000 mm, 113.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(134.0000 mm, 113.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+    @(141.0000 mm, 120.8800 mm): Pad 2 [GND] of U2 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(134.0000 mm, 113.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+    @(123.9500 mm, 121.5000 mm): Track [GND] on F.Cu, length 1.5000 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(141.0000 mm, 120.8800 mm): Track [GND] on F.Cu, length 6.0000 mm
+    @(162.0000 mm, 134.7625 mm): PTH pad 2 [GND] of U3
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(159.4600 mm, 143.4600 mm): Track [GND] on F.Cu, length 0.7637 mm
+    @(152.0000 mm, 146.6800 mm): Track [GND] on F.Cu, length 2.3200 mm
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(165.4400 mm, 110.0000 mm): Via [GND] on F.Cu - B.Cu
+    @(146.1200 mm, 119.6200 mm): Track [GND] on F.Cu, length 1.2445 mm
+
+** Found 0 Footprint errors **
+
+** End of Report **

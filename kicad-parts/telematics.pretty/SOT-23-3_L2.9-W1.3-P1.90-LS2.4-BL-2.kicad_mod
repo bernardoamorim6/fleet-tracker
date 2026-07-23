@@ -1,0 +1,219 @@
+(footprint "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BL-2"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "NUP2105LT1G")
+	(property "Reference" "REF**"
+		(at 0 -5 0)
+		(layer "F.SilkS")
+		(uuid "5dc8c1bb-d720-4696-ac74-6e6efe0b2f97")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BL-2"
+		(at 0 5 0)
+		(layer "F.Fab")
+		(uuid "13f6b4b6-80b7-4d4f-a5e3-cd07bb5541ff")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6384f6a5-6b63-414b-8ae5-8d01ba8f3827")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9ddbd1d6-939d-4e9a-96ba-913e88817815")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC Part" "C14486"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4037971b-e67b-4571-bf1c-847d0b678f9f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.53 -0.73)
+		(end -0.49 -0.73)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f73dc499-b0b7-4d6f-974e-f2db7d3686a5")
+	)
+	(fp_line
+		(start -1.53 0.73)
+		(end -1.53 -0.73)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3e0f0386-71d4-4ed0-ae36-4061c7f3557d")
+	)
+	(fp_line
+		(start 0.46 0.73)
+		(end -0.46 0.73)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0b1335fd-a315-4c95-ba03-d6a8b1e10715")
+	)
+	(fp_line
+		(start 1.53 -0.73)
+		(end 0.49 -0.73)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e0d26cc6-a687-4093-94c3-284222cd39fb")
+	)
+	(fp_line
+		(start 1.53 0.73)
+		(end 1.53 -0.73)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "df358484-18cf-4b52-9334-65e5b209cfbd")
+	)
+	(fp_circle
+		(center -1.45 1.2)
+		(end -1.42 1.2)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "97068dd3-13f8-47e7-b243-bd944b267e06")
+	)
+	(fp_circle
+		(center -0.95 1.45)
+		(end -0.85 1.45)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(layer "Cmts.User")
+		(uuid "22b74ee8-3357-4597-a4e9-98afe81bb84e")
+	)
+	(fp_line
+		(start -1.45 -0.65)
+		(end 1.45 -0.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e433fbc4-3588-402b-9219-1f474ddf444f")
+	)
+	(fp_line
+		(start -1.45 0.65)
+		(end -1.45 -0.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ca13479f-4b9f-4784-9d7b-d8cc075ca9d0")
+	)
+	(fp_line
+		(start 1.45 -0.65)
+		(end 1.45 0.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9f21cb02-cbb2-4faa-9d23-d27dfb48710a")
+	)
+	(fp_line
+		(start 1.45 0.65)
+		(end -1.45 0.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d5a4cbb9-418e-41bc-9d4d-3e297a06a0eb")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "cf17ae4c-f50e-48a5-9c18-e23d744c97c7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -0.95 1 270)
+		(size 1.25 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "5211e92e-2f93-4990-9e31-4b4396406452")
+	)
+	(pad "2" smd rect
+		(at 0.95 1 270)
+		(size 1.25 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3feed2e9-c478-41aa-8c60-fd545c930448")
+	)
+	(pad "3" smd rect
+		(at 0 -1 270)
+		(size 1.25 0.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "50c312f7-84ac-4dd5-a51a-b32878c31eb5")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/kicad-parts/telematics.3dshapes/SOT-23-3_L2.9-W1.3-P1.90-LS2.4.step"
+		(offset
+			(xyz 0 0 0.75)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
+)

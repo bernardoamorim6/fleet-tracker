@@ -1,0 +1,101 @@
+ERC report (2026-07-21T09:02:48+0000, Encoding UTF8)
+
+***** Sheet /
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(2250 mils, 2700 mils): Symbol J1 [DB128V-5.08-5P-GN-S]
+[lib_symbol_mismatch]: Symbol 'DB128V-5.08-5P-GN-S' doesn't match copy in library 'telematics'
+    ; warning
+    @(2250 mils, 2700 mils): Symbol J1 [DB128V-5.08-5P-GN-S]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(4100 mils, 3050 mils): Symbol R1 [HOAR0603-1_10W-100KR-1%-TCR25]
+[lib_symbol_mismatch]: Symbol 'HOAR0603-1_10W-100KR-1%-TCR25' doesn't match copy in library 'telematics'
+    ; warning
+    @(4100 mils, 3050 mils): Symbol R1 [HOAR0603-1_10W-100KR-1%-TCR25]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(4900 mils, 2500 mils): Symbol F1 [5x20BLX-AtypeFuseholderXC-7]
+[lib_symbol_mismatch]: Symbol '5x20BLX-AtypeFuseholderXC-7' doesn't match copy in library 'telematics'
+    ; warning
+    @(4900 mils, 2500 mils): Symbol F1 [5x20BLX-AtypeFuseholderXC-7]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(3950 mils, 3850 mils): Symbol R2 [RC0603FR-0710KL]
+[lib_symbol_mismatch]: Symbol 'RC0603FR-0710KL' doesn't match copy in library 'telematics'
+    ; warning
+    @(3950 mils, 3850 mils): Symbol R2 [RC0603FR-0710KL]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(4250 mils, 3850 mils): Symbol D2 [SMAJ5.0CA_C10756]
+[lib_symbol_mismatch]: Symbol 'SMAJ5.0CA_C10756' doesn't match copy in library 'telematics'
+    ; warning
+    @(4250 mils, 3850 mils): Symbol D2 [SMAJ5.0CA_C10756]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(5500 mils, 2750 mils): Symbol D1 [SMBJ33CA-C78420]
+[lib_symbol_mismatch]: Symbol 'SMBJ33CA-C78420' doesn't match copy in library 'telematics'
+    ; warning
+    @(5500 mils, 2750 mils): Symbol D1 [SMBJ33CA-C78420]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(3700 mils, 5050 mils): Symbol D3 [NUP2105LT1G]
+[lib_symbol_mismatch]: Symbol 'NUP2105LT1G' doesn't match copy in library 'telematics'
+    ; warning
+    @(3700 mils, 5050 mils): Symbol D3 [NUP2105LT1G]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(6400 mils, 2200 mils): Symbol U3 [TSR1-2450E]
+[lib_symbol_mismatch]: Symbol 'TSR1-2450E' doesn't match copy in library 'telematics'
+    ; warning
+    @(6400 mils, 2200 mils): Symbol U3 [TSR1-2450E]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(6200 mils, 2800 mils): Symbol C3 [CL31B106KBHNNNE]
+[lib_symbol_mismatch]: Symbol 'CL31B106KBHNNNE' doesn't match copy in library 'telematics'
+    ; warning
+    @(6200 mils, 2800 mils): Symbol C3 [CL31B106KBHNNNE]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(5350 mils, 4750 mils): Symbol L1 [ACT45B-101-2P-TL003]
+[lib_symbol_mismatch]: Symbol 'ACT45B-101-2P-TL003' doesn't match copy in library 'telematics'
+    ; warning
+    @(5350 mils, 4750 mils): Symbol L1 [ACT45B-101-2P-TL003]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(6600 mils, 2800 mils): Symbol C4 [CL31B106KBHNNNE]
+[lib_symbol_mismatch]: Symbol 'CL31B106KBHNNNE' doesn't match copy in library 'telematics'
+    ; warning
+    @(6600 mils, 2800 mils): Symbol C4 [CL31B106KBHNNNE]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(6550 mils, 5250 mils): Symbol C1 [CL10B104KB8NNNC]
+[lib_symbol_mismatch]: Symbol 'CL10B104KB8NNNC' doesn't match copy in library 'telematics'
+    ; warning
+    @(6550 mils, 5250 mils): Symbol C1 [CL10B104KB8NNNC]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(7050 mils, 4800 mils): Symbol U2 [TJA1051T_3_1J]
+[lib_symbol_mismatch]: Symbol 'TJA1051T_3_1J' doesn't match copy in library 'telematics'
+    ; warning
+    @(7050 mils, 4800 mils): Symbol U2 [TJA1051T_3_1J]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(8650 mils, 2300 mils): Symbol J3 [2685Y-116CNG1SNA01]
+[lib_symbol_mismatch]: Symbol '2685Y-116CNG1SNA01' doesn't match copy in library 'telematics'
+    ; warning
+    @(8650 mils, 2300 mils): Symbol J3 [2685Y-116CNG1SNA01]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(8650 mils, 2900 mils): Symbol J2 [2685Y-116CNG1SNA01]
+[lib_symbol_mismatch]: Symbol '2685Y-116CNG1SNA01' doesn't match copy in library 'telematics'
+    ; warning
+    @(8650 mils, 2900 mils): Symbol J2 [2685Y-116CNG1SNA01]
+[footprint_link_issues]: The current configuration does not include the footprint library 'telematics'.
+    ; warning
+    @(7550 mils, 5250 mils): Symbol C2 [CL10B104KB8NNNC]
+[lib_symbol_mismatch]: Symbol 'CL10B104KB8NNNC' doesn't match copy in library 'telematics'
+    ; warning
+    @(7550 mils, 5250 mils): Symbol C2 [CL10B104KB8NNNC]
+
+ ** ERC messages: 32  Errors 0  Warnings 32

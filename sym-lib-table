@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "telematics")(type "KiCad")(uri "${KIPRJMOD}/kicad-parts/telematics.kicad_sym")(options "")(descr ""))
+)

@@ -1,0 +1,27 @@
+# KiCad auto-save and backups
+*.bak
+*.bck
+*-bak
+*.kicad_sch-bak
+*.kicad_pcb-bak
+_autosave-*
+*-save.kicad_*
+*.kicad_prl
+fp-info-cache
+
+# Lock files (created every time a file is open)
+~*.lck
+*.lck
+\#auto_saved_files\#
+
+# Backup archive folder (KiCad 6+ makes ZIP backups here)
+*-backups/
+
+# Fabrication outputs (regenerable — commit only if you want to freeze an ordered rev)
+gerbers/
+*.zip
+*.drl
+*.gbr
+
+# Python / tooling clutter if any scripts live in the repo
+__pycache__/

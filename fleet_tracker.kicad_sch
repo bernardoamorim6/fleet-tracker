@@ -4,6 +4,11 @@
 	(generator_version "9.0")
 	(uuid "feb90f27-71cf-450c-a5e4-f9c40e12ece1")
 	(paper "A4")
+	(title_block
+		(title "Fleet Tracker v0")
+		(date "2026-07-23")
+		(rev "0.1")
+	)
 	(lib_symbols
 		(symbol "2685Y-116CNG1SNA01_1"
 			(exclude_from_sim no)
@@ -3505,22 +3510,20 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U3"
-				(at 8.89 1.2701 0)
+			(property "Reference" "U"
+				(at 0 8.382 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "TSR 1-2450E"
-				(at 8.89 -1.2699 0)
+				(at 0 6.096 0)
 				(effects
 					(font
-						(size 0.9 0.9)
+						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" "telematics:PWRM-TH_3P-L11.6-W7.5-P2.54_TSR1-2433E"
@@ -3579,8 +3582,8 @@
 			)
 			(symbol "TSR1-2450E_0_1"
 				(rectangle
-					(start -5.08 5.08)
-					(end 7.62 -5.08)
+					(start -6.35 5.08)
+					(end 6.35 -5.08)
 					(stroke
 						(width 0)
 						(type default)
@@ -3600,10 +3603,12 @@
 						(type none)
 					)
 				)
-				(pin power_in line
-					(at -7.62 2.54 0)
+			)
+			(symbol "TSR1-2450E_1_1"
+				(pin unspecified line
+					(at -8.89 2.54 0)
 					(length 2.54)
-					(name "+Vin"
+					(name "In"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3618,8 +3623,8 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at -7.62 0 0)
+				(pin unspecified line
+					(at 0 -7.62 90)
 					(length 2.54)
 					(name "GND"
 						(effects
@@ -3636,10 +3641,10 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at -7.62 -2.54 0)
+				(pin unspecified line
+					(at 8.89 2.54 180)
 					(length 2.54)
-					(name "+Vout"
+					(name "Out"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3658,218 +3663,324 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Firmware GPIO assignments:\nGPIO16 = Ignition sense input (digital or ADC)\nGPIO17 = CAN UART TX (drives TJA1051 pin 1 TXD)\nGPIO18 = CAN UART RX (reads TJA1051 pin 4 RXD)\nCAN bit rate: 250 kbps (verify against FMS-standard for your trucks)\nTJA1051 is in listen-only mode (S pin = VIO)"
+	(text "Female Connectors to hold LilyGo Board"
 		(exclude_from_sim no)
-		(at 243.586 62.484 0)
+		(at 13.716 130.302 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "171cb7e2-0bcf-4d7c-b8fd-c6227b0492fd")
+	)
+	(text "No 120 Ω termination on this board, which is deliberate. This is a passive listen-only tap\non an already-terminated vehicle FMS bus. Adding termination would load the bus and degrade \nit for the OEM tracker sharing the same port."
+		(exclude_from_sim no)
+		(at 131.318 123.952 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left)
+		)
+		(uuid "6c8bcb6e-0e95-4c00-b625-f7822cc327bb")
+	)
+	(text "Firmware GPIO assignments:\n- GPIO16 = Ignition sense input (digital or ADC)\n- GPIO17 = CAN UART TX (drives TJA1051 pin 1 TXD)\n- GPIO18 = CAN UART RX (reads TJA1051 pin 4 RXD)\n- CAN bit rate: 250 kbps (verify against FMS-standard for your trucks)\n- TJA1051 is in listen-only mode (S pin = VIO)"
+		(exclude_from_sim no)
+		(at 131.318 151.13 0)
+		(effects
+			(font
+				(size 2 2)
 			)
 			(justify left)
 		)
 		(uuid "70c92856-f6bb-4101-a567-914bbbf7cdd0")
 	)
+	(text "Voltage regulator 24V-5V"
+		(exclude_from_sim no)
+		(at 131.318 63.5 0)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "b8c3bf6f-1aa4-4a68-9e9e-fb2646dc8690")
+	)
+	(text "Module VSYS pin is output-only per vendor, so J3-16 is NC; +5V reaches the module via\na wire link to its H606 pad."
+		(exclude_from_sim no)
+		(at 131.572 135.128 0)
+		(effects
+			(font
+				(size 2 2)
+			)
+			(justify left)
+		)
+		(uuid "ba543653-7826-421b-93ed-1d876403aa05")
+	)
+	(text "Notes\n"
+		(exclude_from_sim no)
+		(at 130.302 113.284 0)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "bcd3e160-3555-440a-92b7-049a679ec987")
+	)
+	(text "Ignition sense divider"
+		(exclude_from_sim no)
+		(at 12.954 63.5 0)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "c15fb59b-9cfb-49ba-8215-a22b5b428044")
+	)
+	(text "5 pos 5.08 mm terminal block · Truck FMS"
+		(exclude_from_sim no)
+		(at 12.954 14.732 0)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "e22ce54e-c3db-45ce-a402-0185bc4fb1fe")
+	)
+	(text "CAN filtering and transceiver"
+		(exclude_from_sim no)
+		(at 131.572 15.494 0)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "f86fa8c5-2489-4475-9cbd-6c45b413b9aa")
+	)
 	(junction
-		(at 62.23 74.93)
+		(at 52.07 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "01fd8f25-4d62-460d-9729-b8070afc62e3")
 	)
 	(junction
-		(at 82.55 115.57)
+		(at 62.23 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "04ec581e-e3de-4272-841a-5afe99decf95")
+		(uuid "1dcb159f-a252-41aa-a4e9-6f0c92350603")
 	)
 	(junction
-		(at 104.14 90.17)
+		(at 43.18 73.66)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "22ce67a1-7759-420b-8de9-810729e06822")
+	)
+	(junction
+		(at 46.99 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "265f034e-4275-4691-a7f6-12dc207efe6f")
 	)
 	(junction
-		(at 167.64 118.11)
+		(at 234.95 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3877c8d6-4886-4a1d-9486-be351027cd2b")
 	)
 	(junction
-		(at 157.48 78.74)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "388ca5cc-4c9e-49fd-926a-8461dc7f21ec")
-	)
-	(junction
-		(at 113.03 128.27)
+		(at 180.34 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4b356fdc-b685-413e-8e25-03e4980b0bf7")
 	)
 	(junction
-		(at 162.56 78.74)
+		(at 219.71 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "58c82a03-3eb4-449d-813f-1bd5025844d6")
+		(uuid "4b4651e4-4fe5-4fa9-96a2-1721a67d7002")
 	)
 	(junction
-		(at 104.14 105.41)
+		(at 208.28 100.33)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "6450a214-09ca-41b5-8873-ed6edb272e1d")
+		(uuid "5c9818c0-c049-4ac1-8885-f82dc616a173")
 	)
 	(junction
-		(at 179.07 100.33)
+		(at 233.68 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "81836220-b08c-499b-ad61-9163e351092c")
+		(uuid "708f861b-761e-4843-a0eb-e1f4a4fd7747")
 	)
 	(junction
-		(at 157.48 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8a076016-6c85-450a-a482-db45a92e8072")
-	)
-	(junction
-		(at 104.14 86.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8beb4b04-bf0d-43c6-8234-98e6cefc7195")
-	)
-	(junction
-		(at 139.7 63.5)
+		(at 190.5 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d1b34d24-ed67-49b0-b3a4-35a29d1fcd47")
 	)
 	(junction
-		(at 190.5 120.65)
+		(at 257.81 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d8a5eba0-36c0-4477-8450-1c1de6103ddc")
+		(uuid "d66af008-aff0-45e7-ab2b-e792887eac2c")
 	)
 	(junction
-		(at 167.64 63.5)
+		(at 149.86 25.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d77658ab-8868-406f-959a-52eca78d6256")
+	)
+	(junction
+		(at 246.38 49.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f4b4c99b-f422-41f3-9cb3-14fbdc6ae5f9")
+	)
+	(junction
+		(at 208.28 85.09)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "faccaac6-9937-4534-a766-feafac65e1a3")
+	)
+	(junction
+		(at 231.14 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fb1616d1-091e-476d-a042-a680428b1724")
 	)
 	(no_connect
-		(at 203.2 49.53)
+		(at 72.39 147.32)
 		(uuid "012c73f1-1d3e-466a-921a-53ccdb5c6b65")
 	)
 	(no_connect
-		(at 226.06 74.93)
+		(at 95.25 172.72)
 		(uuid "044f9337-3058-4147-a430-dabe32ec7816")
 	)
 	(no_connect
-		(at 231.14 49.53)
+		(at 100.33 147.32)
 		(uuid "12a2de5b-d0b6-4ebb-8565-ec10a69d68de")
 	)
 	(no_connect
-		(at 200.66 49.53)
+		(at 69.85 147.32)
 		(uuid "15217a01-69d3-43ff-ac83-2a40a7071161")
 	)
 	(no_connect
-		(at 208.28 49.53)
+		(at 77.47 147.32)
 		(uuid "167fd0fd-b02b-4d0d-879e-1576c6017438")
 	)
 	(no_connect
-		(at 228.6 74.93)
+		(at 97.79 172.72)
 		(uuid "17248862-98ba-4861-a35d-d7ec92219ad9")
 	)
 	(no_connect
-		(at 231.14 74.93)
+		(at 100.33 172.72)
 		(uuid "1cea5be3-988d-4861-9cca-f21f74a067c7")
 	)
 	(no_connect
-		(at 233.68 74.93)
+		(at 102.87 172.72)
 		(uuid "26ebb868-ef1d-4603-864b-f992597ad240")
 	)
 	(no_connect
-		(at 223.52 49.53)
+		(at 92.71 147.32)
 		(uuid "2f747043-2412-4b3a-a277-22382ed182db")
 	)
 	(no_connect
-		(at 218.44 74.93)
+		(at 87.63 172.72)
 		(uuid "3b9956ee-bb45-4248-b4cf-c460cb19db14")
 	)
 	(no_connect
-		(at 210.82 49.53)
+		(at 80.01 147.32)
 		(uuid "4e442d34-2791-4d4f-a2dd-debe76199b85")
 	)
 	(no_connect
-		(at 215.9 30.48)
+		(at 240.03 85.09)
 		(uuid "4fb0d9b3-894c-4bb5-ab35-6cfdba106a07")
 	)
 	(no_connect
-		(at 233.68 49.53)
+		(at 102.87 147.32)
 		(uuid "4fce2425-0758-42c9-8041-83cf74aed3b8")
 	)
 	(no_connect
-		(at 223.52 74.93)
+		(at 92.71 172.72)
 		(uuid "58f7e400-2d99-4c0e-aba6-8975beed3e63")
 	)
 	(no_connect
-		(at 220.98 49.53)
+		(at 90.17 147.32)
 		(uuid "5c2a8eb5-7b3e-4434-930e-fcc8294107ea")
 	)
 	(no_connect
-		(at 228.6 49.53)
+		(at 97.79 147.32)
 		(uuid "65f6f118-0461-40cd-9d28-1c07f64ace27")
 	)
 	(no_connect
-		(at 238.76 49.53)
+		(at 107.95 147.32)
 		(uuid "6c9e9669-1bc5-448c-b25d-24269594001e")
 	)
 	(no_connect
-		(at 213.36 74.93)
+		(at 82.55 172.72)
 		(uuid "84feb431-5810-4306-8713-4fa158f0a657")
 	)
 	(no_connect
-		(at 238.76 74.93)
+		(at 107.95 172.72)
 		(uuid "864076ac-e69a-4ca1-a800-4620fbfee0b2")
 	)
 	(no_connect
-		(at 220.98 74.93)
+		(at 90.17 172.72)
 		(uuid "9b62804d-1473-41d8-bd7f-fce73ce32023")
 	)
 	(no_connect
-		(at 205.74 49.53)
+		(at 74.93 147.32)
 		(uuid "bcb30ee9-ba32-4d5e-a089-947ccb73b233")
 	)
 	(no_connect
-		(at 215.9 49.53)
+		(at 85.09 147.32)
 		(uuid "be5725cb-dcc4-46cd-b581-1bbdb04f3c3b")
 	)
 	(no_connect
-		(at 213.36 49.53)
+		(at 82.55 147.32)
 		(uuid "cc96086b-9fc4-42c3-a27f-c689e602dec9")
 	)
 	(no_connect
-		(at 218.44 49.53)
+		(at 87.63 147.32)
 		(uuid "d5ba1f5a-5aac-44b3-8cad-bbb3e452124e")
 	)
 	(no_connect
-		(at 215.9 74.93)
+		(at 85.09 172.72)
 		(uuid "de1fd771-d5a9-446c-b5e8-c853790e445c")
 	)
 	(no_connect
-		(at 226.06 49.53)
+		(at 95.25 147.32)
 		(uuid "e8816fce-6a80-41d3-942d-5af654173505")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 189.23 118.11) (xy 210.82 118.11)
+			(xy 129.54 11.43) (xy 129.54 198.12)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "023e023f-0ed7-4677-b551-8575d3944ca3")
+		(uuid "00683c03-5c90-45e6-983d-9feadfb86083")
 	)
 	(wire
 		(pts
-			(xy 167.64 125.73) (xy 167.64 118.11)
+			(xy 234.95 35.56) (xy 234.95 27.94)
 		)
 		(stroke
 			(width 0)
@@ -3879,7 +3990,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 128.27) (xy 144.78 128.27)
+			(xy 223.52 38.1) (xy 212.09 38.1)
 		)
 		(stroke
 			(width 0)
@@ -3889,7 +4000,17 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 128.27) (xy 113.03 146.05)
+			(xy 64.77 182.88) (xy 77.47 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0409bbad-adf6-436d-9608-3a6bb3b79788")
+	)
+	(wire
+		(pts
+			(xy 180.34 38.1) (xy 180.34 55.88)
 		)
 		(stroke
 			(width 0)
@@ -3899,7 +4020,17 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 118.11) (xy 168.91 118.11)
+			(xy 142.24 55.88) (xy 180.34 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04d83934-5023-4c4e-bc2f-7467b5a1a876")
+	)
+	(wire
+		(pts
+			(xy 234.95 27.94) (xy 236.22 27.94)
 		)
 		(stroke
 			(width 0)
@@ -3909,17 +4040,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 66.04) (xy 104.14 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0c49eab4-7c57-4c19-9fc4-1fda7ab12add")
-	)
-	(wire
-		(pts
-			(xy 168.91 125.73) (xy 167.64 125.73)
+			(xy 236.22 35.56) (xy 234.95 35.56)
 		)
 		(stroke
 			(width 0)
@@ -3929,7 +4050,17 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 123.19) (xy 191.77 129.54)
+			(xy 43.18 73.66) (xy 43.18 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ddbe567-2d21-45a5-bb96-934069508de0")
+	)
+	(wire
+		(pts
+			(xy 271.78 33.02) (xy 271.78 35.56)
 		)
 		(stroke
 			(width 0)
@@ -3939,7 +4070,7 @@
 	)
 	(wire
 		(pts
-			(xy 135.89 63.5) (xy 139.7 63.5)
+			(xy 186.69 85.09) (xy 190.5 85.09)
 		)
 		(stroke
 			(width 0)
@@ -3949,17 +4080,37 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 63.5) (xy 157.48 63.5)
+			(xy 80.01 172.72) (xy 80.01 185.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1697807a-a116-4f4d-af10-ce09eb15546c")
+		(uuid "169d7b8e-07e1-48d0-9dea-eb44f160d6e8")
 	)
 	(wire
 		(pts
-			(xy 82.55 115.57) (xy 82.55 128.27)
+			(xy 257.81 30.48) (xy 257.81 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "17a59e7c-35da-42c7-b7c7-ac1c8416fe6b")
+	)
+	(polyline
+		(pts
+			(xy 129.54 59.69) (xy 285.75 59.69)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "189dd930-adda-4084-8da6-97a844492148")
+	)
+	(wire
+		(pts
+			(xy 149.86 25.4) (xy 149.86 38.1)
 		)
 		(stroke
 			(width 0)
@@ -3969,17 +4120,47 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 100.33) (xy 179.07 100.33)
+			(xy 49.53 38.1) (xy 52.07 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "20677eed-20c1-46e1-ae04-ecae4feed4ac")
+		(uuid "1ee62543-7f2e-45cf-b073-3d647298193a")
 	)
 	(wire
 		(pts
-			(xy 139.7 74.93) (xy 139.7 78.74)
+			(xy 233.68 27.94) (xy 233.68 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ffb5a9b-361a-4f8c-9c50-5e8302866997")
+	)
+	(wire
+		(pts
+			(xy 64.77 185.42) (xy 80.01 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "277c8712-f5a0-4a5a-ac11-ae03adb4b77d")
+	)
+	(wire
+		(pts
+			(xy 63.5 176.53) (xy 69.85 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27debfa1-5f4a-49e5-9854-5bccd9450f77")
+	)
+	(wire
+		(pts
+			(xy 190.5 96.52) (xy 190.5 100.33)
 		)
 		(stroke
 			(width 0)
@@ -3987,19 +4168,29 @@
 		)
 		(uuid "28f53823-2599-416b-abb8-02e4abb90c1a")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 74.93 146.05) (xy 113.03 146.05)
+			(xy 11.43 127) (xy 129.54 127)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3143b32f-b14a-421f-affa-42f636a109fb")
+		(uuid "2c34a92e-2b89-4d0f-b355-3c19cff11f16")
 	)
 	(wire
 		(pts
-			(xy 107.95 90.17) (xy 107.95 92.71)
+			(xy 208.28 100.33) (xy 219.71 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3181bef7-a4f7-431a-a343-db4977f796db")
+	)
+	(wire
+		(pts
+			(xy 46.99 69.85) (xy 49.53 69.85)
 		)
 		(stroke
 			(width 0)
@@ -4009,17 +4200,27 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 71.12) (xy 82.55 71.12)
+			(xy 190.5 100.33) (xy 208.28 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "347a5c8d-7caf-42af-ad75-f47826631561")
+		(uuid "346dc5d1-d148-48c7-8956-bce8bd8a4273")
 	)
 	(wire
 		(pts
-			(xy 167.64 66.04) (xy 167.64 63.5)
+			(xy 246.38 49.53) (xy 257.81 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3602ca49-796a-4c1b-9268-6935a710d124")
+	)
+	(wire
+		(pts
+			(xy 231.14 87.63) (xy 231.14 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4029,7 +4230,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 105.41) (xy 107.95 105.41)
+			(xy 62.23 69.85) (xy 62.23 73.66)
 		)
 		(stroke
 			(width 0)
@@ -4039,17 +4240,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 86.36) (xy 104.14 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4248a600-d30f-4560-95d9-f9dec0d34a5f")
-	)
-	(wire
-		(pts
-			(xy 236.22 74.93) (xy 236.22 78.74)
+			(xy 105.41 172.72) (xy 105.41 176.53)
 		)
 		(stroke
 			(width 0)
@@ -4059,7 +4250,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 64.77) (xy 139.7 63.5)
+			(xy 190.5 86.36) (xy 190.5 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4069,17 +4260,17 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 74.93) (xy 208.28 125.73)
+			(xy 152.4 85.09) (xy 163.83 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "49539308-9b26-4a5c-a163-3798dfbba5ad")
+		(uuid "49257660-22ac-4361-94a1-966b8fa6d564")
 	)
 	(wire
 		(pts
-			(xy 139.7 60.96) (xy 139.7 63.5)
+			(xy 190.5 82.55) (xy 190.5 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4089,7 +4280,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 123.19) (xy 156.21 128.27)
+			(xy 223.52 33.02) (xy 223.52 38.1)
 		)
 		(stroke
 			(width 0)
@@ -4099,7 +4290,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 102.87) (xy 100.33 105.41)
+			(xy 59.69 77.47) (xy 62.23 77.47)
 		)
 		(stroke
 			(width 0)
@@ -4109,7 +4300,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 66.04) (xy 104.14 72.39)
+			(xy 26.67 73.66) (xy 29.21 73.66)
 		)
 		(stroke
 			(width 0)
@@ -4119,7 +4310,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 76.2) (xy 167.64 78.74)
+			(xy 231.14 97.79) (xy 231.14 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4129,17 +4320,27 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 120.65) (xy 201.93 120.65)
+			(xy 219.71 100.33) (xy 219.71 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5e573031-3e6a-462f-913a-45f339682f03")
+		(uuid "57d65de7-8a0d-428a-b2ca-5ef2fb33e502")
 	)
 	(wire
 		(pts
-			(xy 156.21 123.19) (xy 168.91 123.19)
+			(xy 49.53 40.64) (xy 52.07 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58858ef0-93ab-46f6-9053-82a6f498e2ed")
+	)
+	(wire
+		(pts
+			(xy 223.52 33.02) (xy 236.22 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4149,7 +4350,17 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 92.71) (xy 100.33 90.17)
+			(xy 64.77 180.34) (xy 74.93 180.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f2ea368-4942-4448-8164-fb00b5f525e9")
+	)
+	(wire
+		(pts
+			(xy 49.53 77.47) (xy 46.99 77.47)
 		)
 		(stroke
 			(width 0)
@@ -4159,27 +4370,17 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 105.41) (xy 104.14 105.41)
+			(xy 190.5 85.09) (xy 208.28 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "60a7ddbe-fc0b-4ab9-90a9-0198d8a4b662")
+		(uuid "60f61e02-a0ab-46c0-ac83-d37a04060e05")
 	)
 	(wire
 		(pts
-			(xy 210.82 74.93) (xy 210.82 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63b1d96d-9135-41be-ac27-a468516d1768")
-	)
-	(wire
-		(pts
-			(xy 100.33 90.17) (xy 104.14 90.17)
+			(xy 46.99 77.47) (xy 46.99 73.66)
 		)
 		(stroke
 			(width 0)
@@ -4189,7 +4390,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 63.5) (xy 157.48 66.04)
+			(xy 208.28 85.09) (xy 208.28 87.63)
 		)
 		(stroke
 			(width 0)
@@ -4197,9 +4398,19 @@
 		)
 		(uuid "6a8c49b0-1153-4a19-8531-c2b2d2edfcf6")
 	)
+	(polyline
+		(pts
+			(xy 129.54 110.49) (xy 129.54 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ab83d1a-caef-44a9-bcce-c3dd0020368d")
+	)
 	(wire
 		(pts
-			(xy 157.48 76.2) (xy 157.48 78.74)
+			(xy 208.28 97.79) (xy 208.28 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4209,17 +4420,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 73.66) (xy 62.23 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74bbccca-9250-4c5c-9ef5-0624c3ee9596")
-	)
-	(wire
-		(pts
-			(xy 113.03 128.27) (xy 127 128.27)
+			(xy 180.34 38.1) (xy 194.31 38.1)
 		)
 		(stroke
 			(width 0)
@@ -4229,17 +4430,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 30.48) (xy 215.9 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "771edaa2-3210-4f90-a0a2-414c8b645005")
-	)
-	(wire
-		(pts
-			(xy 157.48 63.5) (xy 160.02 63.5)
+			(xy 208.28 85.09) (xy 210.82 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4249,7 +4440,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 135.89) (xy 106.68 133.35)
+			(xy 173.99 45.72) (xy 173.99 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4259,7 +4450,17 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 128.27) (xy 113.03 123.19)
+			(xy 66.04 73.66) (xy 66.04 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85f4fa7f-ada2-4efe-be2f-23ffad3a179a")
+	)
+	(wire
+		(pts
+			(xy 180.34 38.1) (xy 180.34 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4269,7 +4470,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 90.17) (xy 107.95 90.17)
+			(xy 46.99 73.66) (xy 46.99 69.85)
 		)
 		(stroke
 			(width 0)
@@ -4279,7 +4480,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 63.5) (xy 167.64 63.5)
+			(xy 228.6 85.09) (xy 231.14 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4289,37 +4490,47 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 115.57) (xy 127 115.57)
+			(xy 256.54 35.56) (xy 260.35 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "91d3d97b-4916-460a-8ad2-2b9152eb5cb1")
+		(uuid "97a0722b-ccbd-45f3-8705-47c2f926fd09")
 	)
 	(wire
 		(pts
-			(xy 190.5 111.76) (xy 190.5 120.65)
+			(xy 49.53 35.56) (xy 52.07 35.56)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "94a8b4fa-a103-4b09-b82d-3f74636f0daa")
+		(uuid "9821f4b3-3a01-4270-af35-aa042655f066")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 60.96 63.5) (xy 113.03 63.5)
+			(xy 11.43 59.69) (xy 129.54 59.69)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "99cee261-a371-42af-996e-e31ac9287b9f")
+		(uuid "987e9173-a543-4dae-a581-1037d1dd8963")
 	)
 	(wire
 		(pts
-			(xy 106.68 123.19) (xy 113.03 123.19)
+			(xy 43.18 73.66) (xy 46.99 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99221f7f-77e8-4837-a6bf-933e5edac6f3")
+	)
+	(wire
+		(pts
+			(xy 173.99 33.02) (xy 180.34 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4329,7 +4540,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 63.5) (xy 176.53 63.5)
+			(xy 231.14 85.09) (xy 240.03 85.09)
 		)
 		(stroke
 			(width 0)
@@ -4339,27 +4550,17 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 78.74) (xy 162.56 78.74)
+			(xy 233.68 27.94) (xy 234.95 27.94)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a5f37944-1d97-444c-b15a-997b242c753e")
+		(uuid "a98ebc72-f192-4691-ba90-02761cef3e6a")
 	)
 	(wire
 		(pts
-			(xy 62.23 74.93) (xy 64.77 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8bdad35-9b6e-4c17-bb10-3b01eda9cd5d")
-	)
-	(wire
-		(pts
-			(xy 205.74 74.93) (xy 205.74 86.36)
+			(xy 74.93 172.72) (xy 74.93 180.34)
 		)
 		(stroke
 			(width 0)
@@ -4369,7 +4570,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 73.66) (xy 62.23 73.66)
+			(xy 49.53 43.18) (xy 52.07 43.18)
 		)
 		(stroke
 			(width 0)
@@ -4379,17 +4580,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 125.73) (xy 208.28 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aad10452-39e5-4294-992a-6f389a756275")
-	)
-	(wire
-		(pts
-			(xy 189.23 120.65) (xy 190.5 120.65)
+			(xy 256.54 30.48) (xy 257.81 30.48)
 		)
 		(stroke
 			(width 0)
@@ -4399,17 +4590,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 110.49) (xy 167.64 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0e92faf-a197-482f-a4f5-15f416b7bd8e")
-	)
-	(wire
-		(pts
-			(xy 190.5 100.33) (xy 190.5 101.6)
+			(xy 233.68 49.53) (xy 233.68 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4419,27 +4600,27 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 63.5) (xy 176.53 30.48)
+			(xy 257.81 30.48) (xy 269.24 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b5430a4f-bb4e-4127-964e-f6cc282ddd4f")
+		(uuid "b95dd287-0546-4877-a098-9980655d0509")
 	)
 	(wire
 		(pts
-			(xy 60.96 68.58) (xy 74.93 68.58)
+			(xy 49.53 33.02) (xy 52.07 33.02)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bb34d07a-9a2e-4b11-8292-382313048fe3")
+		(uuid "ba6ca1e8-e884-4796-b064-f0c4da2b1431")
 	)
 	(wire
 		(pts
-			(xy 189.23 123.19) (xy 191.77 123.19)
+			(xy 256.54 33.02) (xy 271.78 33.02)
 		)
 		(stroke
 			(width 0)
@@ -4449,27 +4630,27 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 86.36) (xy 205.74 86.36)
+			(xy 140.97 25.4) (xy 149.86 25.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "bf7cdc0b-ad37-4988-83d1-8839fcb0152e")
+		(uuid "c526e680-8d18-4764-af8b-4248e5f1e13a")
 	)
 	(wire
 		(pts
-			(xy 200.66 74.93) (xy 200.66 77.47)
+			(xy 77.47 172.72) (xy 77.47 182.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c00e8990-ffa4-4dd0-a1e5-51da6d77c275")
+		(uuid "c8704e94-763e-4eea-9a7a-0488f1f64309")
 	)
 	(wire
 		(pts
-			(xy 163.83 118.11) (xy 167.64 118.11)
+			(xy 231.14 27.94) (xy 233.68 27.94)
 		)
 		(stroke
 			(width 0)
@@ -4479,17 +4660,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 78.74) (xy 162.56 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d67686ba-04f8-46c7-91e5-f771e830a394")
-	)
-	(wire
-		(pts
-			(xy 104.14 82.55) (xy 104.14 86.36)
+			(xy 39.37 73.66) (xy 43.18 73.66)
 		)
 		(stroke
 			(width 0)
@@ -4499,7 +4670,17 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 115.57) (xy 144.78 115.57)
+			(xy 49.53 88.9) (xy 43.18 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7c1e78c-af0a-45a0-9def-f4aa95a12686")
+	)
+	(wire
+		(pts
+			(xy 223.52 25.4) (xy 212.09 25.4)
 		)
 		(stroke
 			(width 0)
@@ -4509,27 +4690,17 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 68.58) (xy 74.93 146.05)
+			(xy 52.07 43.18) (xy 52.07 44.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d90ced17-75ee-4691-afa5-5aa2b084dcb0")
+		(uuid "db2980e9-42d9-4ab7-ae86-a4ed885dd0a7")
 	)
 	(wire
 		(pts
-			(xy 82.55 71.12) (xy 82.55 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e2436a73-c256-4882-831d-fdb7409738f2")
-	)
-	(wire
-		(pts
-			(xy 107.95 105.41) (xy 107.95 102.87)
+			(xy 62.23 69.85) (xy 59.69 69.85)
 		)
 		(stroke
 			(width 0)
@@ -4539,7 +4710,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 120.65) (xy 168.91 120.65)
+			(xy 223.52 30.48) (xy 236.22 30.48)
 		)
 		(stroke
 			(width 0)
@@ -4549,7 +4720,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 100.33) (xy 179.07 104.14)
+			(xy 246.38 49.53) (xy 246.38 50.8)
 		)
 		(stroke
 			(width 0)
@@ -4559,17 +4730,37 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 106.68) (xy 104.14 105.41)
+			(xy 62.23 73.66) (xy 66.04 73.66)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e51df77a-7762-43aa-a81b-91440669e15c")
+		(uuid "e91b3919-eff0-45dc-af89-baa65a813949")
 	)
 	(wire
 		(pts
-			(xy 156.21 120.65) (xy 156.21 115.57)
+			(xy 62.23 73.66) (xy 62.23 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eaaa82f6-563d-42ea-8fd1-7401d7731ffd")
+	)
+	(polyline
+		(pts
+			(xy 285.75 110.49) (xy 129.54 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef7734a7-e7e8-4207-895d-4e40a520c384")
+	)
+	(wire
+		(pts
+			(xy 223.52 30.48) (xy 223.52 25.4)
 		)
 		(stroke
 			(width 0)
@@ -4579,7 +4770,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 43.18) (xy 233.68 43.18)
+			(xy 105.41 144.78) (xy 111.76 144.78)
 		)
 		(stroke
 			(width 0)
@@ -4589,7 +4780,17 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 78.74) (xy 157.48 80.01)
+			(xy 69.85 176.53) (xy 69.85 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1bc0489-a60f-4d82-a32b-2a4683fe3f68")
+	)
+	(wire
+		(pts
+			(xy 219.71 95.25) (xy 219.71 100.33)
 		)
 		(stroke
 			(width 0)
@@ -4599,27 +4800,37 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 63.5) (xy 162.56 78.74)
+			(xy 219.71 100.33) (xy 231.14 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f66f91d0-ae1b-4f8e-b8a1-77a13926350a")
+		(uuid "f87ec26a-fb9b-411a-ba53-b7a567c33f34")
 	)
 	(wire
 		(pts
-			(xy 139.7 78.74) (xy 157.48 78.74)
+			(xy 149.86 25.4) (xy 194.31 25.4)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f73ebb01-dbe8-443a-b43f-a9973427e542")
+		(uuid "f8bd1b6a-d946-479d-819d-333ddf19748d")
 	)
 	(wire
 		(pts
-			(xy 236.22 49.53) (xy 236.22 43.18)
+			(xy 256.54 27.94) (xy 260.35 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fac4822a-1e42-439d-bd83-c287fa4be335")
+	)
+	(wire
+		(pts
+			(xy 105.41 147.32) (xy 105.41 144.78)
 		)
 		(stroke
 			(width 0)
@@ -4629,7 +4840,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 100.33) (xy 190.5 100.33)
+			(xy 233.68 49.53) (xy 246.38 49.53)
 		)
 		(stroke
 			(width 0)
@@ -4637,8 +4848,268 @@
 		)
 		(uuid "ff46103c-5681-4e02-be5d-763578cdc988")
 	)
+	(table
+		(column_count 1)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(column_widths 17.78)
+		(row_heights 2.54 2.54 2.54 2.54 2.54 2.54)
+		(cells
+			(table_cell "Truck FMS"
+				(exclude_from_sim no)
+				(at 97.79 26.67 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "69b89bff-65df-4dda-b943-cb2263e885d2")
+			)
+			(table_cell "Pin 1: GND"
+				(exclude_from_sim no)
+				(at 97.79 29.21 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "dbd7ee3b-d216-4858-998b-1d2856a6d517")
+			)
+			(table_cell "Pin 6: CANL"
+				(exclude_from_sim no)
+				(at 97.79 31.75 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "301aea11-08e1-49da-b443-f5b4016d64cd")
+			)
+			(table_cell "Pin 7: CANH"
+				(exclude_from_sim no)
+				(at 97.79 34.29 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "fcf99e0f-3f41-4ca1-beae-91fcb649a8e6")
+			)
+			(table_cell "Pin 10: 0/24V"
+				(exclude_from_sim no)
+				(at 97.79 36.83 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "5208cf07-2462-4f2e-a07a-1eb53a2a1f43")
+			)
+			(table_cell "Pin 12"
+				(exclude_from_sim no)
+				(at 97.79 39.37 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "700b6e35-8d4b-4630-9730-5b2849ea3ac4")
+			)
+		)
+	)
+	(table
+		(column_count 1)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+		)
+		(column_widths 17.78)
+		(row_heights 2.54 2.54 2.54 2.54 2.54 2.54)
+		(cells
+			(table_cell "J1 Pins"
+				(exclude_from_sim no)
+				(at 80.01 26.67 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "9e180c54-4f6f-48ee-8048-e44625cf8c32")
+			)
+			(table_cell "Pin 1: GND"
+				(exclude_from_sim no)
+				(at 80.01 29.21 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "8401c064-8283-48c7-8303-951cbff740c7")
+			)
+			(table_cell "Pin 2: CAN-"
+				(exclude_from_sim no)
+				(at 80.01 31.75 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "d41e82cb-1e96-49a9-aba0-a3c591f3972f")
+			)
+			(table_cell "Pin 3: CAN+"
+				(exclude_from_sim no)
+				(at 80.01 34.29 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "18cf1e97-26c0-486c-8de5-cc5feb438138")
+			)
+			(table_cell "Pin 4: IGN"
+				(exclude_from_sim no)
+				(at 80.01 36.83 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "d2d8aeed-04fb-48f0-93d3-ba37f6f024bd")
+			)
+			(table_cell "Pin 5: +24V"
+				(exclude_from_sim no)
+				(at 80.01 39.37 0)
+				(size 17.78 2.54)
+				(margins 0.9525 0.9525 0.9525 0.9525)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "008fe2a5-b1de-4f8a-9fe0-96176d232551")
+			)
+		)
+	)
+	(label "+24V_TRUCK"
+		(at 152.4 85.09 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "0b11ef6e-35ea-4262-a63e-2803a62f3e8f")
+	)
 	(label "CAN_FILT-"
-		(at 144.78 115.57 0)
+		(at 212.09 25.4 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4648,7 +5119,7 @@
 		(uuid "0e2441c8-dd7a-4a7c-8e11-4c063b082aaf")
 	)
 	(label "+3.3V"
-		(at 163.83 118.11 180)
+		(at 231.14 27.94 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4657,8 +5128,18 @@
 		)
 		(uuid "1e71c85a-f542-4f7b-95d3-396a82686d20")
 	)
+	(label "IGN_RAW"
+		(at 26.67 73.66 180)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify right bottom)
+		)
+		(uuid "2d0d5f42-fbf5-4cac-88c8-256ae5f443ff")
+	)
 	(label "CAN_RXD"
-		(at 193.04 118.11 0)
+		(at 260.35 27.94 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4668,7 +5149,7 @@
 		(uuid "3095d893-a938-4522-b7a0-572e45124c79")
 	)
 	(label "+5V"
-		(at 201.93 120.65 0)
+		(at 269.24 30.48 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4678,7 +5159,7 @@
 		(uuid "328900d1-c509-443a-9463-514eb1efb965")
 	)
 	(label "+24V_TRUCK"
-		(at 63.5 63.5 0)
+		(at 52.07 33.02 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4688,7 +5169,7 @@
 		(uuid "341df583-d705-4348-9ff3-71e7f0acc7a8")
 	)
 	(label "CAN_RAW-"
-		(at 63.5 71.12 0)
+		(at 52.07 40.64 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4697,8 +5178,28 @@
 		)
 		(uuid "3a3b970f-80d4-4e67-bf14-c137d8835850")
 	)
+	(label "CAN_RAW-"
+		(at 142.24 55.88 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "3bb46bc8-de8c-4736-9070-f4e1245d2d03")
+	)
+	(label "CAN_RXD"
+		(at 64.77 185.42 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c5d27e0-c5f5-40d8-9174-dc20296a38b6")
+	)
 	(label "IGN_RAW"
-		(at 63.5 66.04 0)
+		(at 52.07 35.56 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4708,17 +5209,17 @@
 		(uuid "47455909-89b1-458a-8e89-57efbb842b8d")
 	)
 	(label "+3.3V"
-		(at 200.66 77.47 180)
+		(at 64.77 176.53 0)
 		(effects
 			(font
 				(size 1 1)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "62866369-69c1-435a-8de1-ab12eb458c87")
 	)
 	(label "CAN_RAW+"
-		(at 63.5 68.58 0)
+		(at 52.07 38.1 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4728,7 +5229,7 @@
 		(uuid "7d649fe3-7ed4-4736-a9ca-acba59bc93a3")
 	)
 	(label "CAN_FILT+"
-		(at 144.78 128.27 0)
+		(at 212.09 38.1 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4737,8 +5238,28 @@
 		)
 		(uuid "7e66f588-7c56-4925-ae56-81a5ebe0d25d")
 	)
+	(label "CAN_TXD"
+		(at 64.77 182.88 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "82ab9a65-d9be-4c20-bed5-55cd2fc01366")
+	)
+	(label "IGN_SENSE"
+		(at 64.77 180.34 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "b77ce643-5f72-48b6-9d9e-b502b7f819da")
+	)
 	(label "+5V_H606"
-		(at 215.9 30.48 0)
+		(at 240.03 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4747,8 +5268,18 @@
 		)
 		(uuid "b9f3f53b-9823-4885-9dd5-6c4ea2f39185")
 	)
+	(label "IGN_SENSE"
+		(at 49.53 88.9 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "bc330b4f-52b2-4082-b1be-a18420b45df3")
+	)
 	(label "GND"
-		(at 64.77 74.93 0)
+		(at 52.07 43.18 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4758,7 +5289,7 @@
 		(uuid "be5b7f71-c00c-4895-846c-8c707ba242fe")
 	)
 	(label "+5V"
-		(at 170.18 63.5 0)
+		(at 233.68 85.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4768,7 +5299,7 @@
 		(uuid "c07a8b56-1c95-4394-8170-72ca0d7fbb8b")
 	)
 	(label "+24V_FUSED"
-		(at 139.7 63.5 0)
+		(at 190.5 85.09 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4778,7 +5309,7 @@
 		(uuid "c2396781-4ce7-4072-b143-ec0ee3cb2ce1")
 	)
 	(label "CAN_TXD"
-		(at 193.04 125.73 0)
+		(at 260.35 35.56 0)
 		(effects
 			(font
 				(size 1 1)
@@ -4787,8 +5318,18 @@
 		)
 		(uuid "d95a5bbd-9e36-4def-893d-56594c3c7d73")
 	)
+	(label "CAN_RAW+"
+		(at 140.97 25.4 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "e2cf1603-20d0-4e40-8a5a-0a869f824e1e")
+	)
 	(label "GND"
-		(at 64.77 74.93 0)
+		(at 52.07 44.45 0)
 		(effects
 			(font
 				(size 0.001 0.001)
@@ -4797,19 +5338,9 @@
 		)
 		(uuid "e7c90b14-102d-496a-b350-e3a95f9b16c6")
 	)
-	(label "IGN_SENSE"
-		(at 189.23 86.36 0)
-		(effects
-			(font
-				(size 1 1)
-			)
-			(justify left bottom)
-		)
-		(uuid "f4d12fbc-03cb-409d-bde0-5e927013ecc2")
-	)
 	(symbol
 		(lib_id "telematics:RC0603FR-0710KL")
-		(at 100.33 97.79 270)
+		(at 54.61 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4817,15 +5348,15 @@
 		(dnp no)
 		(uuid "084c58d1-3911-4fb3-aa98-c951a526ab9a")
 		(property "Reference" "R2"
-			(at 94.7419 97.79 0)
+			(at 54.61 75.438 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "RC0603FR-0710KL"
-			(at 97.282 97.79 0)
+		(property "Value" "10k"
+			(at 54.61 80.01 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -4833,7 +5364,7 @@
 			)
 		)
 		(property "Footprint" "telematics:R0603"
-			(at 92.71 97.79 0)
+			(at 54.61 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4842,7 +5373,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Chip-Resistor-Surface-Mount_10KR-1_C98220.html"
-			(at 90.17 97.79 0)
+			(at 54.61 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4851,7 +5382,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 100.33 97.79 0)
+			(at 54.61 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4860,7 +5391,7 @@
 			)
 		)
 		(property "Manufacturer" "YAGEO(国巨)"
-			(at 87.63 97.79 0)
+			(at 54.61 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4869,7 +5400,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-0710KL"
-			(at 85.09 97.79 0)
+			(at 54.61 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4878,7 +5409,7 @@
 			)
 		)
 		(property "LCSC Part" "C98220"
-			(at 82.55 97.79 0)
+			(at 54.61 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4903,7 +5434,7 @@
 	)
 	(symbol
 		(lib_id "telematics:HOAR0603-1_10W-100KR-1%-TCR25")
-		(at 104.14 77.47 270)
+		(at 34.29 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4911,7 +5442,7 @@
 		(dnp no)
 		(uuid "0bc2f172-af52-4cdc-88cf-af5e7d6e5d84")
 		(property "Reference" "R1"
-			(at 106.68 76.1999 90)
+			(at 33.02 71.374 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4919,17 +5450,16 @@
 				(justify left)
 			)
 		)
-		(property "Value" "HOAR0603-1/10W-100KR-1%-TCR25"
-			(at 106.68 78.74 90)
+		(property "Value" "100k"
+			(at 34.29 76.2 0)
 			(effects
 				(font
 					(size 0.9 0.9)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "telematics:R0603"
-			(at 96.52 77.47 0)
+			(at 34.29 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4938,7 +5468,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2912579.pdf"
-			(at 93.98 77.47 0)
+			(at 34.29 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4947,7 +5477,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 104.14 77.47 0)
+			(at 34.29 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4956,7 +5486,7 @@
 			)
 		)
 		(property "Manufacturer" "Milliohm(毫欧)"
-			(at 91.44 77.47 0)
+			(at 34.29 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4965,7 +5495,7 @@
 			)
 		)
 		(property "MPN" "HoAR0603-1/10W-100KR-1%-TCR25"
-			(at 88.9 77.47 0)
+			(at 34.29 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4974,7 +5504,7 @@
 			)
 		)
 		(property "LCSC Part" "C2912579"
-			(at 86.36 77.47 0)
+			(at 34.29 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4999,7 +5529,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 179.07 104.14 0)
+		(at 246.38 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5008,7 +5538,7 @@
 		(fields_autoplaced yes)
 		(uuid "2764c61e-6ce9-41e2-84ee-e6628669b5ad")
 		(property "Reference" "#PWR6"
-			(at 179.07 110.49 0)
+			(at 246.38 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5017,15 +5547,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 179.07 109.22 0)
+			(at 246.38 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 179.07 104.14 0)
+			(at 246.38 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5034,7 +5565,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 179.07 104.14 0)
+			(at 246.38 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5043,7 +5574,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 179.07 104.14 0)
+			(at 246.38 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5065,7 +5596,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 203.2 74.93 0)
+		(at 72.39 172.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5073,7 +5604,7 @@
 		(dnp no)
 		(uuid "3079b5ee-d49c-415e-9302-20d52eda6b8b")
 		(property "Reference" "#PWR7"
-			(at 203.2 81.28 0)
+			(at 72.39 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5082,15 +5613,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 203.2 78.486 0)
+			(at 72.39 176.276 0)
 			(effects
 				(font
 					(size 0.9 0.9)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 203.2 74.93 0)
+			(at 72.39 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5099,7 +5631,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 74.93 0)
+			(at 72.39 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5108,7 +5640,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 203.2 74.93 0)
+			(at 72.39 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5130,7 +5662,7 @@
 	)
 	(symbol
 		(lib_id "telematics:5x20BLX-AtypeFuseholderXC-7")
-		(at 124.46 63.5 0)
+		(at 175.26 85.09 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5139,16 +5671,15 @@
 		(dnp no)
 		(uuid "33a29321-aff6-4032-98be-7f2bc4264480")
 		(property "Reference" "F1"
-			(at 123.698 59.69 0)
+			(at 175.26 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "5x20 BLX-Atype Fuse holder XC-7"
-			(at 122.428 57.912 0)
+		(property "Value" "5x20 Fuse holder 1 A fast-blow"
+			(at 175.26 81.788 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -5156,7 +5687,7 @@
 			)
 		)
 		(property "Footprint" "telematics:FUSE-TH_L22.6-W9.0"
-			(at 124.46 55.88 0)
+			(at 175.26 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5165,7 +5696,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Fuseholders_5x20-BLX-Fuse-holder_C3131.html"
-			(at 124.46 53.34 0)
+			(at 175.26 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5174,7 +5705,7 @@
 			)
 		)
 		(property "Description" "5x20 BLX-"
-			(at 124.46 63.5 0)
+			(at 175.26 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5183,7 +5714,7 @@
 			)
 		)
 		(property "Manufacturer" "xcfuse(旭程)"
-			(at 124.46 50.8 0)
+			(at 175.26 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5192,7 +5723,7 @@
 			)
 		)
 		(property "MPN" "5x20 BLX-A型 保险丝支架 XC-7"
-			(at 124.46 48.26 0)
+			(at 175.26 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5201,7 +5732,7 @@
 			)
 		)
 		(property "LCSC Part" "C3131"
-			(at 124.46 45.72 0)
+			(at 175.26 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5226,7 +5757,7 @@
 	)
 	(symbol
 		(lib_id "telematics:NUP2105LT1G")
-		(at 93.98 128.27 90)
+		(at 161.29 38.1 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5235,15 +5766,15 @@
 		(dnp no)
 		(uuid "33e82618-229b-40df-8ab8-13f3a94e9c41")
 		(property "Reference" "D3"
-			(at 93.98 143.51 90)
+			(at 161.29 50.8 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "NUP2105LT1G"
-			(at 93.98 140.97 90)
+		(property "Value" "NUP2105LT1G 24V"
+			(at 161.29 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5251,7 +5782,7 @@
 			)
 		)
 		(property "Footprint" "telematics:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BL-2"
-			(at 114.3 128.27 0)
+			(at 181.61 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5260,7 +5791,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/TVS_ON_NUP2105LT1G_NUP2105LT1G_C14486.html"
-			(at 116.84 128.27 0)
+			(at 184.15 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5269,7 +5800,7 @@
 			)
 		)
 		(property "Description" "NUP2105LT1G"
-			(at 93.98 128.27 0)
+			(at 161.29 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5278,7 +5809,7 @@
 			)
 		)
 		(property "Manufacturer" "onsemi(安森美)"
-			(at 119.38 128.27 0)
+			(at 186.69 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5287,7 +5818,7 @@
 			)
 		)
 		(property "MPN" "NUP2105LT1G"
-			(at 121.92 128.27 0)
+			(at 189.23 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5296,7 +5827,7 @@
 			)
 		)
 		(property "LCSC Part" "C14486"
-			(at 124.46 128.27 0)
+			(at 191.77 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5324,7 +5855,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 233.68 43.18 0)
+		(at 111.76 144.78 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5332,7 +5863,7 @@
 		(dnp no)
 		(uuid "37e7c653-bb90-4381-8191-7c02e2943f43")
 		(property "Reference" "#PWR10"
-			(at 233.68 49.53 0)
+			(at 111.76 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5341,15 +5872,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 233.68 46.99 0)
+			(at 111.76 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 233.68 43.18 0)
+			(at 111.76 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5358,7 +5890,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 233.68 43.18 0)
+			(at 111.76 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5367,7 +5899,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 233.68 43.18 0)
+			(at 111.76 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5389,7 +5921,7 @@
 	)
 	(symbol
 		(lib_id "telematics:CL10B104KB8NNNC")
-		(at 190.5 106.68 270)
+		(at 233.68 43.18 90)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5398,23 +5930,25 @@
 		(dnp no)
 		(uuid "38c191d4-111f-4466-87a6-73b47d1c2735")
 		(property "Reference" "C2"
-			(at 196.85 106.68 0)
+			(at 230.124 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "CL10B104KB8NNNC"
-			(at 194.31 106.68 0)
+		(property "Value" "100nF 50V X7R"
+			(at 230.124 44.45 90)
 			(effects
 				(font
 					(size 0.9 0.9)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "telematics:C0603"
-			(at 182.88 106.68 0)
+			(at 241.3 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5423,7 +5957,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL10B104KB8NNNC_100nF-104-10-50V_C1591.html"
-			(at 180.34 106.68 0)
+			(at 243.84 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5432,7 +5966,7 @@
 			)
 		)
 		(property "Description" "100nF (104) ±10% 50V"
-			(at 190.5 106.68 0)
+			(at 233.68 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5441,7 +5975,7 @@
 			)
 		)
 		(property "Manufacturer" "SAMSUNG(三星)"
-			(at 177.8 106.68 0)
+			(at 246.38 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5450,7 +5984,7 @@
 			)
 		)
 		(property "MPN" "CL10B104KB8NNNC"
-			(at 175.26 106.68 0)
+			(at 248.92 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5459,7 +5993,7 @@
 			)
 		)
 		(property "LCSC Part" "C1591"
-			(at 172.72 106.68 0)
+			(at 251.46 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5484,7 +6018,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 191.77 129.54 0)
+		(at 271.78 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5492,7 +6026,7 @@
 		(dnp no)
 		(uuid "432283a6-0424-449c-896e-6d68bc5f93d1")
 		(property "Reference" "#PWR01"
-			(at 191.77 135.89 0)
+			(at 271.78 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5501,15 +6035,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 191.77 133.35 0)
+			(at 271.78 39.37 0)
 			(effects
 				(font
 					(size 1 1)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 191.77 129.54 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5518,7 +6053,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 191.77 129.54 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5527,7 +6062,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 191.77 129.54 0)
+			(at 271.78 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5549,24 +6084,23 @@
 	)
 	(symbol
 		(lib_id "telematics:ACT45B-101-2P-TL003")
-		(at 135.89 120.65 0)
+		(at 203.2 30.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "503d6756-6693-4e5f-97ff-f375da1713ad")
 		(property "Reference" "L1"
-			(at 135.89 110.49 0)
+			(at 203.2 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "ACT45B-101-2P-TL003"
-			(at 135.89 113.03 0)
+		(property "Value" "100µH"
+			(at 203.2 22.86 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -5574,7 +6108,7 @@
 			)
 		)
 		(property "Footprint" "telematics:FILTER-SMD_4P-L4.5-W3.2-TL_ACT45B"
-			(at 135.89 135.89 0)
+			(at 203.2 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5583,7 +6117,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Filters_TDK_ACT45B-101-2P-TL003_100mH-100kHz-150mA-50V_C88056.html"
-			(at 135.89 138.43 0)
+			(at 203.2 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5592,7 +6126,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 135.89 120.65 0)
+			(at 203.2 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5601,7 +6135,7 @@
 			)
 		)
 		(property "Manufacturer" "TDK"
-			(at 135.89 140.97 0)
+			(at 203.2 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5610,7 +6144,7 @@
 			)
 		)
 		(property "MPN" "ACT45B-101-2P-TL003"
-			(at 135.89 143.51 0)
+			(at 203.2 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5619,7 +6153,7 @@
 			)
 		)
 		(property "LCSC Part" "C88056"
-			(at 135.89 146.05 0)
+			(at 203.2 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5650,7 +6184,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 104.14 106.68 0)
+		(at 66.04 77.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5658,7 +6192,7 @@
 		(dnp no)
 		(uuid "53da9c56-ed0c-4822-addf-4c46ac90330a")
 		(property "Reference" "#PWR4"
-			(at 104.14 113.03 0)
+			(at 66.04 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5667,15 +6201,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 104.14 111.76 0)
+			(at 66.04 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 104.14 106.68 0)
+			(at 66.04 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5684,7 +6219,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 104.14 106.68 0)
+			(at 66.04 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5693,7 +6228,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 104.14 106.68 0)
+			(at 66.04 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5716,7 +6251,7 @@
 	(symbol
 		(lib_name "2685Y-116CNG1SNA01_1")
 		(lib_id "telematics:2685Y-116CNG1SNA01")
-		(at 219.71 69.85 0)
+		(at 88.9 167.64 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5724,15 +6259,15 @@
 		(dnp no)
 		(uuid "54a04dc3-4f13-4a0d-89b0-37dd541be7b6")
 		(property "Reference" "J2"
-			(at 219.71 61.214 0)
+			(at 88.9 159.004 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "2685Y-116CNG1SNA01"
-			(at 219.71 63.754 0)
+		(property "Value" "1×16 2.54 mm socket"
+			(at 88.9 161.544 0)
 			(effects
 				(font
 					(size 1 1)
@@ -5740,7 +6275,7 @@
 			)
 		)
 		(property "Footprint" "telematics:HDR-TH_16P-P2.54-V-F-1"
-			(at 219.71 82.55 0)
+			(at 88.9 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5749,7 +6284,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Others_2685Y-116CNG1SNA01_C350305.html"
-			(at 219.71 85.09 0)
+			(at 88.9 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5758,7 +6293,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 219.71 69.85 0)
+			(at 88.9 167.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5767,7 +6302,7 @@
 			)
 		)
 		(property "Manufacturer" "HOAUC(华宇创)"
-			(at 219.71 87.63 0)
+			(at 88.9 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5776,7 +6311,7 @@
 			)
 		)
 		(property "MPN" "2685Y-116CNG1SNA01"
-			(at 219.71 90.17 0)
+			(at 88.9 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5785,7 +6320,7 @@
 			)
 		)
 		(property "LCSC Part" "C350305"
-			(at 219.71 92.71 0)
+			(at 88.9 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5852,23 +6387,23 @@
 	)
 	(symbol
 		(lib_id "telematics:TJA1051T_3_1J")
-		(at 179.07 121.92 180)
+		(at 246.38 31.75 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "581106a2-aa7f-4c3f-934f-3a8c18edd65b")
-		(property "Reference" "U2"
-			(at 179.07 133.35 0)
+		(property "Reference" "U1"
+			(at 246.126 22.098 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "TJA1051T/3/1J"
-			(at 179.07 130.81 0)
+		(property "Value" "TJA1051"
+			(at 246.126 23.876 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -5876,7 +6411,7 @@
 			)
 		)
 		(property "Footprint" "telematics:SOIC-8_L4.9-W3.9-P1.27-LS6.0-BL"
-			(at 179.07 110.49 0)
+			(at 246.38 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5885,7 +6420,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/CAN_NXP_TJA1051T-3_TJA1051T-3_C38695.html"
-			(at 179.07 107.95 0)
+			(at 246.38 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5894,7 +6429,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 179.07 121.92 0)
+			(at 246.38 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5903,7 +6438,7 @@
 			)
 		)
 		(property "Manufacturer" "NXP(恩智浦)"
-			(at 179.07 105.41 0)
+			(at 246.38 15.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5912,7 +6447,7 @@
 			)
 		)
 		(property "MPN" "TJA1051T/3/1J"
-			(at 179.07 102.87 0)
+			(at 246.38 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5921,7 +6456,7 @@
 			)
 		)
 		(property "LCSC Part" "C38695"
-			(at 179.07 100.33 0)
+			(at 246.38 10.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5956,7 +6491,7 @@
 		(instances
 			(project ""
 				(path "/feb90f27-71cf-450c-a5e4-f9c40e12ece1"
-					(reference "U2")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -5964,7 +6499,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 200.66 77.47 180)
+		(at 63.5 176.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5972,7 +6507,7 @@
 		(dnp no)
 		(uuid "6fdc4c18-07f2-4316-8a61-961bd12ccbad")
 		(property "Reference" "#PWR11"
-			(at 200.66 73.66 0)
+			(at 63.5 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5981,7 +6516,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 200.66 81.026 0)
+			(at 63.5 172.974 0)
 			(effects
 				(font
 					(size 1 1)
@@ -5989,7 +6524,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 200.66 77.47 0)
+			(at 63.5 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5998,7 +6533,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 200.66 77.47 0)
+			(at 63.5 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6007,7 +6542,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 200.66 77.47 0)
+			(at 63.5 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6029,15 +6564,15 @@
 	)
 	(symbol
 		(lib_id "telematics:TSR1-2450E")
-		(at 162.56 55.88 90)
+		(at 219.71 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "79738917-874b-4f00-9b48-b6526f1bc625")
-		(property "Reference" "U3"
-			(at 162.814 43.942 90)
+		(property "Reference" "U2"
+			(at 219.71 78.486 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6045,7 +6580,7 @@
 			)
 		)
 		(property "Value" "TSR 1-2450E"
-			(at 162.814 46.4821 90)
+			(at 219.71 81.0261 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -6053,7 +6588,7 @@
 			)
 		)
 		(property "Footprint" "telematics:PWRM-TH_3P-L11.6-W7.5-P2.54_TSR1-2433E"
-			(at 172.72 55.88 0)
+			(at 219.71 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6062,7 +6597,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C5346721.pdf"
-			(at 175.26 55.88 0)
+			(at 219.71 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6071,7 +6606,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 162.56 55.88 0)
+			(at 219.71 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6080,7 +6615,7 @@
 			)
 		)
 		(property "Manufacturer" "TRACO POWER"
-			(at 177.8 55.88 0)
+			(at 219.71 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6089,7 +6624,7 @@
 			)
 		)
 		(property "MPN" "TSR 1-2450E"
-			(at 180.34 55.88 0)
+			(at 219.71 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6098,7 +6633,7 @@
 			)
 		)
 		(property "LCSC Part" "C5346721"
-			(at 182.88 55.88 0)
+			(at 219.71 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6118,7 +6653,7 @@
 		(instances
 			(project ""
 				(path "/feb90f27-71cf-450c-a5e4-f9c40e12ece1"
-					(reference "U3")
+					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -6126,7 +6661,7 @@
 	)
 	(symbol
 		(lib_id "telematics:SMAJ5.0CA_C10756")
-		(at 107.95 97.79 270)
+		(at 54.61 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6134,15 +6669,15 @@
 		(dnp no)
 		(uuid "8ef3c4e5-249e-4659-850c-afc5dfc5ce1c")
 		(property "Reference" "D2"
-			(at 111.7599 97.79 0)
+			(at 54.61 65.532 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "SMAJ5.0CA_C10756"
-			(at 114.3 97.79 0)
+		(property "Value" "SMAJ5.0CA 5V"
+			(at 54.864 67.31 0)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -6150,7 +6685,7 @@
 			)
 		)
 		(property "Footprint" "telematics:SMA_L4.4-W2.6-LS5.0-BI"
-			(at 100.33 97.79 0)
+			(at 54.61 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6159,7 +6694,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/TVS_SMAJ5-0CA_C10756.html"
-			(at 97.79 97.79 0)
+			(at 54.61 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6168,7 +6703,7 @@
 			)
 		)
 		(property "Description" "SMAJ5.0CA"
-			(at 107.95 97.79 0)
+			(at 54.61 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6177,7 +6712,7 @@
 			)
 		)
 		(property "Manufacturer" "RUILON(瑞隆源)"
-			(at 95.25 97.79 0)
+			(at 54.61 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6186,7 +6721,7 @@
 			)
 		)
 		(property "MPN" "SMAJ5.0CA"
-			(at 92.71 97.79 0)
+			(at 54.61 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6195,7 +6730,7 @@
 			)
 		)
 		(property "LCSC Part" "C10756"
-			(at 90.17 97.79 0)
+			(at 54.61 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6220,7 +6755,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 157.48 80.01 0)
+		(at 219.71 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6228,7 +6763,7 @@
 		(dnp no)
 		(uuid "9c210ebe-52bd-49a9-b197-697171fbc7c1")
 		(property "Reference" "#PWR3"
-			(at 157.48 86.36 0)
+			(at 219.71 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6237,15 +6772,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 161.29 81.534 0)
+			(at 223.52 103.124 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 157.48 80.01 0)
+			(at 219.71 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6254,7 +6790,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 157.48 80.01 0)
+			(at 219.71 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6263,7 +6799,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 157.48 80.01 0)
+			(at 219.71 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6285,7 +6821,7 @@
 	)
 	(symbol
 		(lib_id "telematics:DB128V-5.08-5P-GN-S")
-		(at 57.15 68.58 180)
+		(at 45.72 38.1 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6293,15 +6829,15 @@
 		(dnp no)
 		(uuid "9ea6449f-4b3e-488d-8063-488331e06d36")
 		(property "Reference" "J1"
-			(at 52.324 68.58 90)
+			(at 40.894 38.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "DB128V-5.08-5P-GN-S"
-			(at 49.7839 68.58 90)
+		(property "Value" "Truck Side FMS"
+			(at 38.3539 38.1 90)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -6309,7 +6845,7 @@
 			)
 		)
 		(property "Footprint" "telematics:CONN-TH_5P-P5.08_DIBO_DB128V-5.08-5P-GN-S"
-			(at 57.15 55.88 0)
+			(at 45.72 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6318,7 +6854,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2927513.pdf"
-			(at 57.15 53.34 0)
+			(at 45.72 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6327,7 +6863,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 57.15 68.58 0)
+			(at 45.72 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6336,7 +6872,7 @@
 			)
 		)
 		(property "Manufacturer" "DORABO(地博电气)"
-			(at 57.15 50.8 0)
+			(at 45.72 20.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6345,7 +6881,7 @@
 			)
 		)
 		(property "MPN" "DB128V-5.08-5P-GN-S"
-			(at 57.15 48.26 0)
+			(at 45.72 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6354,7 +6890,7 @@
 			)
 		)
 		(property "LCSC Part" "C2927513"
-			(at 57.15 45.72 0)
+			(at 45.72 15.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6388,7 +6924,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 135.89 0)
+		(at 173.99 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6397,7 +6933,7 @@
 		(fields_autoplaced yes)
 		(uuid "a75e6d9e-0c91-483c-8a01-f324c21e5b6b")
 		(property "Reference" "#PWR2"
-			(at 106.68 142.24 0)
+			(at 173.99 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6406,15 +6942,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 140.97 0)
+			(at 173.99 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 135.89 0)
+			(at 173.99 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6423,7 +6960,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 135.89 0)
+			(at 173.99 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6432,7 +6969,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 135.89 0)
+			(at 173.99 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6454,16 +6991,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 62.23 74.93 0)
+		(at 52.07 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "ba9d8d43-3b34-4e46-a0ba-185acdfaef81")
 		(property "Reference" "#PWR5"
-			(at 62.23 81.28 0)
+			(at 52.07 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6472,15 +7008,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 62.23 80.01 0)
+			(at 52.07 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 62.23 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6489,7 +7026,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6498,7 +7035,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 62.23 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6520,7 +7057,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 139.7 60.96 0)
+		(at 190.5 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6528,7 +7065,7 @@
 		(dnp no)
 		(uuid "c7e7bf58-f525-488a-a3d6-c7b236a21bcd")
 		(property "Reference" "#FLG01"
-			(at 139.7 59.055 0)
+			(at 190.5 80.645 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6537,15 +7074,16 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 139.954 57.15 0)
+			(at 195.58 79.502 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 60.96 0)
+			(at 190.5 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6554,7 +7092,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 139.7 60.96 0)
+			(at 190.5 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6563,7 +7101,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 139.7 60.96 0)
+			(at 190.5 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6585,7 +7123,7 @@
 	)
 	(symbol
 		(lib_id "telematics:CL31B106KBHNNNE")
-		(at 157.48 71.12 270)
+		(at 208.28 92.71 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6593,23 +7131,25 @@
 		(dnp no)
 		(uuid "d0efabb6-72f0-4b3a-819a-14398fc681de")
 		(property "Reference" "C3"
-			(at 150.114 70.866 0)
+			(at 205.486 91.694 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "CL31B106KBHNNNE"
-			(at 152.4 71.12 0)
+		(property "Value" "10uF 50V X7R"
+			(at 205.232 93.98 90)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.9 0.9)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "telematics:C1206"
-			(at 149.86 71.12 0)
+			(at 200.66 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6618,7 +7158,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL31B106KBHNNNE_10uF-106-10-50V_C89632.html"
-			(at 147.32 71.12 0)
+			(at 198.12 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6627,7 +7167,7 @@
 			)
 		)
 		(property "Description" "10uF(106) ±10% 50V"
-			(at 157.48 71.12 0)
+			(at 208.28 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6636,7 +7176,7 @@
 			)
 		)
 		(property "Manufacturer" "SAMSUNG(三星)"
-			(at 144.78 71.12 0)
+			(at 195.58 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6645,7 +7185,7 @@
 			)
 		)
 		(property "MPN" "CL31B106KBHNNNE"
-			(at 142.24 71.12 0)
+			(at 193.04 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6654,7 +7194,7 @@
 			)
 		)
 		(property "LCSC Part" "C89632"
-			(at 139.7 71.12 0)
+			(at 190.5 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6679,7 +7219,7 @@
 	)
 	(symbol
 		(lib_id "telematics:CL10B104KB8NNNC")
-		(at 167.64 105.41 90)
+		(at 257.81 44.45 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6687,23 +7227,25 @@
 		(dnp no)
 		(uuid "d111faed-825a-4561-970d-c60b77f110d3")
 		(property "Reference" "C1"
-			(at 161.798 105.41 0)
+			(at 261.112 43.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "CL10B104KB8NNNC"
-			(at 164.338 105.41 0)
+		(property "Value" "100nF 50V X7R"
+			(at 261.112 45.72 90)
 			(effects
 				(font
 					(size 0.9 0.9)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "telematics:C0603"
-			(at 175.26 105.41 0)
+			(at 250.19 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6712,7 +7254,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL10B104KB8NNNC_100nF-104-10-50V_C1591.html"
-			(at 177.8 105.41 0)
+			(at 247.65 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6721,7 +7263,7 @@
 			)
 		)
 		(property "Description" "100nF (104) ±10% 50V"
-			(at 167.64 105.41 0)
+			(at 257.81 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6730,7 +7272,7 @@
 			)
 		)
 		(property "Manufacturer" "SAMSUNG(三星)"
-			(at 180.34 105.41 0)
+			(at 245.11 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6739,7 +7281,7 @@
 			)
 		)
 		(property "MPN" "CL10B104KB8NNNC"
-			(at 182.88 105.41 0)
+			(at 242.57 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6748,7 +7290,7 @@
 			)
 		)
 		(property "LCSC Part" "C1591"
-			(at 185.42 105.41 0)
+			(at 240.03 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6773,7 +7315,7 @@
 	)
 	(symbol
 		(lib_id "telematics:2685Y-116CNG1SNA01")
-		(at 219.71 54.61 0)
+		(at 88.9 152.4 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6782,15 +7324,15 @@
 		(dnp no)
 		(uuid "defb6f26-e9be-4db4-8486-6508c248c807")
 		(property "Reference" "J3"
-			(at 219.964 43.688 0)
+			(at 88.9 142.494 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "2685Y-116CNG1SNA01"
-			(at 219.964 46.228 0)
+		(property "Value" "1×16 2.54 mm socket"
+			(at 88.9 145.034 0)
 			(effects
 				(font
 					(size 1 1)
@@ -6798,7 +7340,7 @@
 			)
 		)
 		(property "Footprint" "telematics:HDR-TH_16P-P2.54-V-F-1"
-			(at 219.71 41.91 0)
+			(at 88.9 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6807,7 +7349,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Others_2685Y-116CNG1SNA01_C350305.html"
-			(at 219.71 39.37 0)
+			(at 88.9 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6816,7 +7358,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 219.71 54.61 0)
+			(at 88.9 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6825,7 +7367,7 @@
 			)
 		)
 		(property "Manufacturer" "HOAUC(华宇创)"
-			(at 219.71 36.83 0)
+			(at 88.9 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6834,7 +7376,7 @@
 			)
 		)
 		(property "MPN" "2685Y-116CNG1SNA01"
-			(at 219.71 34.29 0)
+			(at 88.9 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6843,7 +7385,7 @@
 			)
 		)
 		(property "LCSC Part" "C350305"
-			(at 219.71 31.75 0)
+			(at 88.9 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6910,7 +7452,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 236.22 78.74 0)
+		(at 105.41 176.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6918,7 +7460,7 @@
 		(dnp no)
 		(uuid "ec29bfce-0ecb-4242-a569-a121e0a0d53d")
 		(property "Reference" "#PWR9"
-			(at 236.22 85.09 0)
+			(at 105.41 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6927,15 +7469,16 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 236.22 82.55 0)
+			(at 105.41 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 236.22 78.74 0)
+			(at 105.41 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6944,7 +7487,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 236.22 78.74 0)
+			(at 105.41 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6953,7 +7496,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 236.22 78.74 0)
+			(at 105.41 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6975,7 +7518,7 @@
 	)
 	(symbol
 		(lib_id "telematics:CL31B106KBHNNNE")
-		(at 167.64 71.12 270)
+		(at 231.14 92.71 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6984,7 +7527,7 @@
 		(fields_autoplaced yes)
 		(uuid "f06e5a2a-a984-4866-b238-448e8a00b0cf")
 		(property "Reference" "C4"
-			(at 171.45 69.8499 90)
+			(at 234.95 91.4399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6992,8 +7535,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "CL31B106KBHNNNE"
-			(at 171.45 72.39 90)
+		(property "Value" "10uF 50V X7R"
+			(at 234.95 93.98 90)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -7002,7 +7545,7 @@
 			)
 		)
 		(property "Footprint" "telematics:C1206"
-			(at 160.02 71.12 0)
+			(at 223.52 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7011,7 +7554,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_SAMSUNG_CL31B106KBHNNNE_10uF-106-10-50V_C89632.html"
-			(at 157.48 71.12 0)
+			(at 220.98 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7020,7 +7563,7 @@
 			)
 		)
 		(property "Description" "10uF(106) ±10% 50V"
-			(at 167.64 71.12 0)
+			(at 231.14 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7029,7 +7572,7 @@
 			)
 		)
 		(property "Manufacturer" "SAMSUNG(三星)"
-			(at 154.94 71.12 0)
+			(at 218.44 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7038,7 +7581,7 @@
 			)
 		)
 		(property "MPN" "CL31B106KBHNNNE"
-			(at 152.4 71.12 0)
+			(at 215.9 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7047,7 +7590,7 @@
 			)
 		)
 		(property "LCSC Part" "C89632"
-			(at 149.86 71.12 0)
+			(at 213.36 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7072,7 +7615,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 64.77 74.93 270)
+		(at 52.07 44.45 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7081,7 +7624,7 @@
 		(fields_autoplaced yes)
 		(uuid "f22675b8-5692-4d91-b098-fa71ae172e99")
 		(property "Reference" "#FLG02"
-			(at 66.675 74.93 0)
+			(at 53.975 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7090,16 +7633,17 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 68.58 74.9299 90)
+			(at 55.88 44.4499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" ""
-			(at 64.77 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7108,7 +7652,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 64.77 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7117,7 +7661,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 64.77 74.93 0)
+			(at 52.07 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7139,7 +7683,7 @@
 	)
 	(symbol
 		(lib_id "telematics:SMBJ33CA-C78420")
-		(at 139.7 69.85 270)
+		(at 190.5 91.44 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7147,7 +7691,7 @@
 		(dnp no)
 		(uuid "fca6e1ab-0965-4a5d-a73a-696cb068471d")
 		(property "Reference" "D1"
-			(at 136.906 71.12 90)
+			(at 187.452 90.4239 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7155,8 +7699,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SMBJ33CA-C78420"
-			(at 136.906 68.5799 90)
+		(property "Value" "SMBJ33CA 33V"
+			(at 187.452 92.964 90)
 			(effects
 				(font
 					(size 0.9 0.9)
@@ -7165,7 +7709,7 @@
 			)
 		)
 		(property "Footprint" "telematics:SMB_L4.3-W3.6-LS5.4-BI"
-			(at 132.08 69.85 0)
+			(at 182.88 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7174,7 +7718,7 @@
 			)
 		)
 		(property "Datasheet" "https://lcsc.com/product-detail/TVS_SMBJ33CA_C78420.html"
-			(at 129.54 69.85 0)
+			(at 180.34 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7183,7 +7727,7 @@
 			)
 		)
 		(property "Description" "SMBJ33CA"
-			(at 139.7 69.85 0)
+			(at 190.5 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7192,7 +7736,7 @@
 			)
 		)
 		(property "Manufacturer" "Brightking(君耀电子)"
-			(at 127 69.85 0)
+			(at 177.8 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7201,7 +7745,7 @@
 			)
 		)
 		(property "MPN" "SMBJ33CA"
-			(at 124.46 69.85 0)
+			(at 175.26 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7210,7 +7754,7 @@
 			)
 		)
 		(property "LCSC Part" "C78420"
-			(at 121.92 69.85 0)
+			(at 172.72 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
